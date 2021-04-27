@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block tile %}Home | Cleverange{% endblock %}
+
+{% block body_block %}
+<div class="container my-5">
+    <h2 class="my-5">Feature Products</h2>
+    <div class="row">
+        {% for product in object_list %}
+        <div class="col-md-6 col-sm-12 col-lg-3">
+            <figure class="card card-product">
+                <div class="img-wrap">
+                    <img src="/media/{{ product.mainimage }}" style="width:100%; height:300px;" alt="">
+                </div>
+                <figure class="info-wrap">
+                    <h5 class="title"><a href="{% url 'store:product-detail' pk=product.pk %}">{{ product.name }}</a></h5>
+                    <div class="action-wrap">
+                        <div class="price-wrap h5">
+                        <span class="price-new">&#2547;{{ product.price|floatformat }}</span>
+                        <span class="price-old"><strike>&#2547;{{ product.old_price|floatformat }}</strike></span>
+                    </div>
+                    </div>
+                </figure>
+            </figure>
+        </div>
+
+        {% endfor %}
+
+
+    </div>
+</div>
+
+
+{% endblock %}

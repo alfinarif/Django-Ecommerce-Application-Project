@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block tile %}Create An Account{% endblock %}
+
+{% block body_block %}
+<br>
+<br>
+<br>
+<br>
+
+
+<h2> Create An Account</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success">Sign Up</button>
+</form>
+<br>
+<p>Already have an account: <a href="{% url 'account:login' %}">Login Here</a></p>
+
+<br>
+<br>
+<br>
+<br>
+{% endblock %}
+
+
+
+
+
+
+
+

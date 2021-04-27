@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block tile %}Profile{% endblock %}
+
+{% block body_block %}
+<br>
+<br>
+<br>
+<br>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <button type="submit" class="btn btn-success">Save Data</button>
+</form>
+<br>
+<p><a href="{% url 'account:logout' %}">LogOut</a></p>
+
+<br>
+<br>
+<br>
+<br>
+{% endblock %}
